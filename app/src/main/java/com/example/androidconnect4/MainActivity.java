@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnHelp:
                 Intent intent = new Intent(this, HelpActivity.class);
                 startActivity(intent);
-                //finish();
+                finish();
                 break;
             case R.id.btnInit:
                 Intent intent1 = new Intent(this, ConfigurationActivity.class);
                 startActivity(intent1);
-                //finish()
+                finish();
                 break;
             case R.id.btnExit:
                 finish();
