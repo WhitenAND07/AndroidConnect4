@@ -1,0 +1,15 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="espaiesquerra">5dp</dimen>
+    <dimen name="distanciabotons">10dp</dimen>
+    <dimen name="botosortir">110dp</dimen>
+    <dimen name="espaitext">20dp</dimen>
+    <dimen name="midaimatge">150dp</dimen>
+    <dimen name="midaimatgepetita">40dp</dimen>
+    <dimen name="ampladaeditext">100dp</dimen>
+    <dimen name="margeditext">10dp</dimen>
+    <dimen name="esquerraeditext">7dp</dimen>
+    <dimen name="midatextconfig">23dp</dimen>
+    <dimen name="separacio">45dp</dimen>
+    <dimen name="checkboxmargintop">25dp</dimen>
+</resources>

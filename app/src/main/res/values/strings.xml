@@ -1,0 +1,27 @@
+<resources>
+    <!-- Initial Activity -->
+    <string name="app_name">Connect 4</string>
+    <string name="action_settings">Configuració</string>
+    <string name="btnHelp">Ajuda</string>
+    <string name="btnInit">Comença la Partida</string>
+    <string name="btnExit">Sortir</string>
+
+    <!--- Help Activity -->
+    <string name="HelpTitle">Ajuda</string>
+    <string name="backBtn">Torna</string>
+    <string name="help">El joc consisteix en anar introduint fitxes en un tauler vertical amb l\'objectiu d\'alinear 4 consecutives del color assignat al jugador(roig) abans que el teu oponent.
+        \n \n A cada torn, el jugador introdueix una fitxa a la columna triada(sempre i quan no estigui completa), i aquesta cau a la posiciió més baixa possible.
+        \n \n Guanya la partida el jugador que primer aconsegueix alinaer 4 fitxes consecutives del seu color en horitzontal, vertical o diagonal.
+        \n \n Si totes les columnes estan plenes i ningu ha aconseguit alinear-ne 4 fitxes, hi ha empat.</string>
+
+    <!--- Configuration Activity -->
+    <string name="ConfigurationTitle">Configuració</string>
+    <string name="startBtn">Comença</string>
+    <string name="alias">Alias</string>
+    <string name="size">Mida de la Graella: </string>
+    <string name="optionGrid1">5</string>
+    <string name="optionGrid2">6</string>
+    <string name="optionGrid3">7</string>
+    <string name="time">Control del temps: </string>
+    <string name="toastMSG">Si us plau, ompli tots els camps.</string>
+</resources>
