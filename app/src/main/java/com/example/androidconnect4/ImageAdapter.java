@@ -86,11 +86,11 @@ public class ImageAdapter extends BaseAdapter {
     }
     private int setPiece(int position) {
         if (connectBoard.getPositionsUser().contains(position)) {
-            return R.drawable.connect4_logo; //TODO: Afegir fitxa USER
+            return R.drawable.celausuari;
         } else if (connectBoard.getPositionsComputer().contains(position)) {
-            return R.drawable.connect4_logo; //TODO: Afegir Fitxa Computer
+            return R.drawable.celaoponent;
         } else {
-            return R.drawable.connect4_logo; // TODO: Afegir casella buida
+            return R.drawable.celabuida;
         }
     }
     private void updateTextViews() {
