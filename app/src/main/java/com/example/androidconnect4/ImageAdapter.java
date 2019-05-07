@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ImageAdapter extends BaseAdapter {
 
@@ -63,15 +64,15 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null){
             btn = new Button(mContext);
             if(getCount() == 25 ){
-                btn.setLayoutParams(new GridView.LayoutParams(80, 80));
+                btn.setLayoutParams(new GridView.LayoutParams(150, 150));
                 btn.setPadding(5, 5, 5, 5);
             }
-            if(getCount() == 36 ){
-                btn.setLayoutParams(new GridView.LayoutParams(60, 60));
+            else if(getCount() == 36 ){
+                btn.setLayoutParams(new GridView.LayoutParams(120, 120));
                 btn.setPadding(5, 5, 5, 5);
             }
             else {
-                btn.setLayoutParams(new GridView.LayoutParams(45, 45));
+                btn.setLayoutParams(new GridView.LayoutParams(100, 100));
                 btn.setPadding(5, 5, 5, 5);
             }
         }
@@ -111,5 +112,18 @@ public class ImageAdapter extends BaseAdapter {
         mContext.startActivity(intent);
         mContext.finish();
     }
+    
+    private class MyOnClickListener implements View.OnClickListener {
+        private final int position;
+        private Context context;
 
+        MyOnClickListener(int position, Context context) {
+            this.position = position;
+            this.context = context;
+        }
+
+        public void onClick(View v) {
+            //TODO: ALL
+        }
+    }
 }

@@ -15,6 +15,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/turn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Turn: "/>
@@ -42,11 +43,10 @@
 
     <LinearLayout
         android:id="@+id/gridLinearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
         android:layout_weight="54"
-        android:background="#123"
+        android:background="#042DA7"
         android:padding="10dp">
 
         <GridView
@@ -54,7 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:background="#555"
             android:columnWidth="100dp"
             android:gravity="center"
             android:horizontalSpacing="4dp"
