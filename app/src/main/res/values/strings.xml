@@ -24,4 +24,33 @@
     <string name="optionGrid3">7</string>
     <string name="time">Control del temps: </string>
     <string name="toastMSG">Si us plau, ompli tots els camps.</string>
+
+    <!--- Configuration Activity -->
+    <string name="GameTitle">Connect 4 Game</string>
+    <string name="turn">Turn: </string>
+    <string name="timeGame">Time: </string>
+    <!--- Results Activity -->
+    <string name="ResultsTitle">Resultats</string>
+    <string name="ResultsTitle2">Resultats del joc</string>
+    <string name="date">Data i Hora</string>
+    <string name="resume">Valors del Log</string>
+    <string name="email">E-Mail to send the log</string>
+    <string name="user">Tu: </string>
+    <string name="ia">CPU: </string>
+    <string name="cellsToFinish">Caselles per acabar: </string>
+
+    <!--- Strings for the Log -->
+    <string name="Alias">Alias:</string>
+    <string name="SizeOfTheGrid">Size of the grid:</string>
+    <string name="Win">Has Guanyat!!</string>
+    <string name="Lose">Has Perdut!!</string>
+    <string name="Draw">Has Empatat!!</string>
+    <string name="Difference">Caselles de Diferencia</string>
+    <string name="Left">Caselles Restants.</string>
+    <string name="Time">No queda més temps! </string>
+    <string name="You">Tu: </string>
+    <string name="Player2">El teu Oponent: </string>
+    <string name="sendResults">Enviar e-mail</string>
+    <string name="subject">Resultats de la partida - Connect 4 Game</string>
+    <string name="GameRun"> Partida en curs!</string>
 </resources>

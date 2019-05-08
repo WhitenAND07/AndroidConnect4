@@ -11,6 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.androidconnect4.Utils.Variables;
+
 public class ConfigurationActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
