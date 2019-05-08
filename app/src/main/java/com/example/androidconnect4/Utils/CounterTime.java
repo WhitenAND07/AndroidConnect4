@@ -1,6 +1,8 @@
-package com.example.androidconnect4;
+package com.example.androidconnect4.Utils;
 
 import android.os.CountDownTimer;
+
+import com.example.androidconnect4.Utils.ConnectBoard;
 
 public class CounterTime extends CountDownTimer {
 
@@ -26,7 +28,7 @@ public class CounterTime extends CountDownTimer {
 
     @Override
     public void onFinish() {
-
+        connectBoard.timeEnd = true;
     }
 
     public long getTime(){
