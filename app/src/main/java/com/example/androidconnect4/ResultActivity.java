@@ -139,7 +139,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 if (!email.getText().toString().isEmpty()) {
                     Intent intent1 = new Intent(Intent.ACTION_SENDTO,
                             Uri.parse("mailto:" + email.getText().toString()));
-                    intent1.putExtra(Intent.EXTRA_SUBJECT, R.string.subject);
+                    intent1.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject));
                     intent1.putExtra(Intent.EXTRA_TEXT, resume.getText().toString());
                     startActivity(intent1);
                 } else {
