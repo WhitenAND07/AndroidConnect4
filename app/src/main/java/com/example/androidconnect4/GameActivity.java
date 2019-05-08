@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.example.androidconnect4.Utils.ConnectBoard;
+import com.example.androidconnect4.Utils.ImageAdapter;
+import com.example.androidconnect4.Utils.Variables;
+
 public class GameActivity extends AppCompatActivity {
 
     private int SIZE;
@@ -12,7 +16,7 @@ public class GameActivity extends AppCompatActivity {
     private String player1;
     private int countDown = 40;
 
-    private TextView cells, timing, score1, score2;
+    private TextView turn,timing;
 
     private ConnectBoard connectBoard;
     private GridView board;
@@ -29,7 +33,7 @@ public class GameActivity extends AppCompatActivity {
 
     private void initGridView() {
         ImageAdapter imageAdapter = new ImageAdapter(this, connectBoard, player1, SIZE, time,
-                cells, timing);
+                turn, timing);
         this.board = (GridView) findViewById(R.id.board);
         this.board.setAdapter(imageAdapter);
         this.board.setNumColumns(SIZE);
@@ -49,9 +53,9 @@ public class GameActivity extends AppCompatActivity {
 
     private void getConfiguration() {
         player1 = getIntent().getStringExtra(Variables.USER);
-        SIZE = getIntent().getIntExtra(Variables.SIZE, 4);
+        SIZE = getIntent().getIntExtra(Variables.SIZE, 7);
         time = getIntent().getBooleanExtra(Variables.TIME, false);
-        cells = (TextView) findViewById(R.id.turn);
+        turn = (TextView) findViewById(R.id.turn);
         timing = (TextView) findViewById(R.id.timing);
     }
 

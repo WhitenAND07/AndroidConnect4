@@ -1,4 +1,4 @@
-package com.example.androidconnect4;
+package com.example.androidconnect4.Utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,25 +11,28 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidconnect4.R;
+import com.example.androidconnect4.ResultActivity;
+
 public class ImageAdapter extends BaseAdapter {
 
     private Activity mContext;
     private ConnectBoard connectBoard;
     private TextView time;
     private boolean timeNotNull;
-    private TextView cells;
+    private TextView turn;
     private int SIZE;
     private String alias;
 
     public ImageAdapter(Activity c, ConnectBoard connectBoard, String alias, int size,
-                        boolean timeNotNull, TextView cells, TextView time){
+                        boolean timeNotNull, TextView turn, TextView time){
         mContext = c;
         this.connectBoard = connectBoard;
         this.SIZE = size;
         this.time = time;
         this.timeNotNull = timeNotNull;
         this.alias = alias;
-        this.cells = cells;
+        this.turn = turn;
     }
 
     private void updateTime() {
@@ -85,22 +88,30 @@ public class ImageAdapter extends BaseAdapter {
         btn.setId(position);
         return btn;
     }
+
     private int setPiece(int position) {
         if (connectBoard.getPositionsUser().contains(position)) {
             return R.drawable.celausuari;
         } else if (connectBoard.getPositionsComputer().contains(position)) {
             return R.drawable.celaoponent;
+        } else if (connectBoard.getPositionsPossibleCells().contains(position)) {
+            return R.drawable.celapossible;
         } else {
             return R.drawable.celabuida;
         }
     }
+
     private void updateTextViews() {
-        //TODO: Editar textView del torn
+        this.turn.setText(String.valueOf(connectBoard.turn));
     }
     private void createNewActivity() {
         int timeLeft;
         if (timeNotNull) {
-            timeLeft = connectBoard.getTime() / Variables.SEGON;
+            if(connectBoard.timeEnd){
+                timeLeft =0;
+            }else {
+                timeLeft = connectBoard.getTime() / Variables.SEGON;
+            }
         } else {
             timeLeft = (int) (System.currentTimeMillis() / Variables.SEGON - connectBoard.time);
         }
@@ -123,7 +134,37 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         public void onClick(View v) {
-            //TODO: ALL
+            if (connectBoard.getPositionsPossibleCells().contains(position)) {
+                doTheMovement(position);
+                if (isFinal()) createNewActivity();
+            } else {
+                Toast.makeText(context, "Invalid Movement. Try again", Toast.LENGTH_SHORT).show();
+            }
+        }
+        private void doTheMovement(int position) {
+            connectBoard.fillCell(position);
+            connectBoard.changeTurn();
+            connectBoard.getPositionsPossible();
+            update();
+        }
+        private void update() {
+            updateTextViews();
+            updateTime();
+            notifyDataSetChanged();
+        }
+
+        private boolean isFinal() {
+            if (connectBoard.isEnd()) {
+                return true;
+            } else {
+                if (connectBoard.timeEnd){
+
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
         }
     }
 }
