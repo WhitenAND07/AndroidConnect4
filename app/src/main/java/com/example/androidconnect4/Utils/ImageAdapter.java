@@ -154,7 +154,7 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         private boolean isFinal() {
-            if (connectBoard.isEnd()) {
+            if (connectBoard.isEnd(position)) {
                 return true;
             } else {
                 if (connectBoard.timeEnd){

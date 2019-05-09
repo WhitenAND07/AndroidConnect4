@@ -113,8 +113,14 @@ public class ConnectBoard implements Parcelable {
     }
 
 
-    boolean isEnd() {
-        return size * size - getPositionsUser().size() - getPositionsComputer().size() == 0;
+    boolean isEnd(int position) {
+        if(size * size - getPositionsUser().size() - getPositionsComputer().size() == 0){
+            return true;
+        } else if (directionCol(position)){ return true;
+        } else if (directionRow(position)){ return true;
+        }
+
+        return false;
     }
 
     @Override
@@ -131,5 +137,80 @@ public class ConnectBoard implements Parcelable {
         parcel.writeList(ComputerCells);
     }
 
+   public boolean directionCol (int position){
+        int connected = 1;
+        int x = position/size;
+        int y = position%size;
+            for (int i = 0; i<4; i++){
+                if ((x != size-1)){
+                    if (connectBoard[x][y] == connectBoard[x+1][y]){
+                        connected ++;
+                        x++;
+                }
+            }
+        }
+       return connected == 4;
+    }
+
+    public boolean directionRow (int position){
+        int connected = 1;
+        int x = position/size;
+        for (int y = 0; y<size-1; y++){
+            if(this.turn == 2) {
+                if (connectBoard[x][y] == connectBoard[x][y + 1] && UserCells.contains(position)) {
+                    connected++;
+                    if (connected == 4) {
+                        return true;
+                    }
+                } else {
+                    connected = 1;
+                }
+            }
+            if(this.turn == 1) {
+                if (connectBoard[x][y] == connectBoard[x][y + 1] && ComputerCells.contains(position)) {
+                    connected++;
+                    if (connected == 4) {
+                        return true;
+                    }
+                } else {
+                    connected = 1;
+                }
+            }
+        }
+        return false;
+    }
+
+    /*
+    public boolean directionDiagonal (int position){
+        int connected = 1;
+        int x = position/size;
+        int y = position%size;
+        for (int i = 0; i<4; i++){
+            if ((x != size-1)){
+                if (connectBoard[x][y] == connectBoard[x+1][y]){
+                    connected ++;
+                    x++;
+                }
+            }
+        }
+        return connected == 4;
+    }
+
+    public boolean directionDiagonal2 (int position){
+        int connected = 1;
+        int x = position/size;
+        int y = position%size;
+        for (int i = 0; i<4; i++){
+            if ((x != size-1)){
+                if (connectBoard[x][y] == connectBoard[x+1][y]){
+                    connected ++;
+                    x++;
+                }
+            }
+        }
+        return connected == 4;
+    }
+
     //TODO : Logica del joc.
+    */
 }
