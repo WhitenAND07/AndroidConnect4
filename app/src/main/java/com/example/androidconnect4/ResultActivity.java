@@ -26,6 +26,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     private int score1;
     private int score2;
     private String alias;
+    private int turn;
+    private int finalcells;
 
     private EditText date;
     private EditText resume;
@@ -57,6 +59,8 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         withTime = intent.getBooleanExtra(Variables.TIME, false);
         timeLeft = intent.getIntExtra(Variables.TIME_LEFT, 20);
         alias = intent.getStringExtra(Variables.USER);
+        turn = intent.getIntExtra("turn",1);
+        finalcells = intent.getIntExtra("full", -1);
     }
 
     private void recuperateInstances(Bundle savedInstanceState) {
@@ -86,24 +90,27 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         }
         if (timeLeft == 0) {
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
-                    getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
+                    getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog + "\n" +
                     getString(R.string.Time));
             createToast(R.string.Time, R.drawable.connect4_logox30);
-        } else if (score1 > score2) {
+        }
+
+            else if (finalcells == 0) {
+                resume.setText(getString(R.string.Alias) + alias + ".\n " +
+                        getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
+                        getString(R.string.Draw));
+                createToast(R.string.Draw, R.drawable.connect4_logox30);
+
+        } else if (turn == 2) {
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                     getString(R.string.Win));
             createToast(R.string.Win, R.drawable.connect4_logox30);
-        } else if (score2 > score1) {
+        } else if (turn == 1) {
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                     getString(R.string.Lose));
             createToast(R.string.Lose, R.drawable.connect4_logox30);
-        } else if (score1 == score2) {
-            resume.setText(getString(R.string.Alias) + alias + ".\n " +
-                    getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
-                    getString(R.string.Draw));
-            createToast(R.string.Draw, R.drawable.connect4_logox30);
         }
     }
 

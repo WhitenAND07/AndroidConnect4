@@ -28,6 +28,7 @@ public class ConnectBoard implements Parcelable {
     private List<Integer> UserCells;
     private List<Integer> ComputerCells;
     private List<Integer> PossibleCells = new ArrayList<>();
+    int finalcells;
 
     int getTime() {
         return (int) clock.getTime();
@@ -114,7 +115,8 @@ public class ConnectBoard implements Parcelable {
 
 
     boolean isEnd(int position) {
-        if(size * size - getPositionsUser().size() - getPositionsComputer().size() == 0){
+        finalcells = size * size - getPositionsUser().size() - getPositionsComputer().size();
+        if(finalcells == 0){
             return true;
         } else if (directionCol(position)){ return true;
         } else if (directionRow(position)){ return true;

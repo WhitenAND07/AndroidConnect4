@@ -101,6 +101,7 @@ public class ImageAdapter extends BaseAdapter {
         }
     }
 
+
     private void updateTextViews() {
         this.turn.setText(String.valueOf(connectBoard.turn));
     }
@@ -120,9 +121,20 @@ public class ImageAdapter extends BaseAdapter {
         intent.putExtra(Variables.TIME, timeNotNull);
         intent.putExtra(Variables.TIME_LEFT, timeLeft);
         intent.putExtra(Variables.SIZE, SIZE);
+        intent.putExtra("turn", connectBoard.turn);
+        intent.putExtra("full", connectBoard.finalcells);
         mContext.startActivity(intent);
         mContext.finish();
     }
+
+    private int randomCPU() {
+        int randomInt = 100;
+        while (!connectBoard.getPositionsPossibleCells().contains(randomInt)) {
+            randomInt = (int) (Math.random() * (SIZE * SIZE));
+        }
+        return randomInt;
+    }
+
     
     private class MyOnClickListener implements View.OnClickListener {
         private final int position;
@@ -136,7 +148,13 @@ public class ImageAdapter extends BaseAdapter {
         public void onClick(View v) {
             if (connectBoard.getPositionsPossibleCells().contains(position)) {
                 doTheMovement(position);
-                if (isFinal()) createNewActivity();
+                if (isFinal()){ createNewActivity();}
+                else {
+                    doTheMovement(randomCPU());
+                    if (isFinal()) {
+                        createNewActivity();
+                    }
+                }
             } else {
                 Toast.makeText(context, "Invalid Movement. Try again", Toast.LENGTH_SHORT).show();
             }
@@ -166,5 +184,7 @@ public class ImageAdapter extends BaseAdapter {
                 }
             }
         }
+
+
+        }
     }
-}
