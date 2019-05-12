@@ -37,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/turn"
+            android:layout_marginLeft="@dimen/margeditext"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"/>
         <TextView
@@ -65,20 +66,18 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="54"
-        android:background="#042DA7"
         android:padding="10dp">
 
         <GridView
             android:id="@+id/board"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:columnWidth="100dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:horizontalSpacing="-10dp"
+            android:layout_marginTop="60dp"
             android:gravity="center"
-            android:horizontalSpacing="4dp"
+
             android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="4dp" />
+             />
     </LinearLayout>
 
 

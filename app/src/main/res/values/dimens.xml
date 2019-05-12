@@ -12,4 +12,5 @@
     <dimen name="midatextconfig">23dp</dimen>
     <dimen name="separacio">45dp</dimen>
     <dimen name="checkboxmargintop">25dp</dimen>
+    <dimen name="margintop">60dp</dimen>
 </resources>
