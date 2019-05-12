@@ -152,32 +152,19 @@ public class ConnectBoard implements Parcelable {
        return connected == 4;
     }
 
-    public boolean directionRow (int position){
+    public boolean directionRow (int position) {
         int connected = 1;
-        int x = position/size;
-        for (int y = 0; y<size-1; y++){
-            if(this.turn == 2) {
-                if (connectBoard[x][y] == connectBoard[x][y + 1] && UserCells.contains(position)) {
-                    connected++;
-                    if (connected == 4) {
-                        return true;
-                    }
-                } else {
-                    connected = 1;
-                }
+        int x = position / size;
+        for (int y = 0; y < size - 1; y++) {
+            if (connectBoard[x][y] == connectBoard[x][y + 1] && connectBoard[x][y + 1] != 0) {
+                connected++;
             }
-            if(this.turn == 1) {
-                if (connectBoard[x][y] == connectBoard[x][y + 1] && ComputerCells.contains(position)) {
-                    connected++;
-                    if (connected == 4) {
-                        return true;
-                    }
-                } else {
-                    connected = 1;
-                }
+            else {
+                if(connected == 4){return true;}
+                connected = 1;
             }
         }
-        return false;
+        return connected == 4;
     }
 
     /*
