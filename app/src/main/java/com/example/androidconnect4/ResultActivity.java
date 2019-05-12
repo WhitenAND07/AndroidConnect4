@@ -105,12 +105,12 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                     getString(R.string.Win));
-            createToast(R.string.Win, R.drawable.connect4_logox30);
+            createToast(R.string.Win, R.drawable.win);
         } else if (turn == 1) {
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                     getString(R.string.Lose));
-            createToast(R.string.Lose, R.drawable.connect4_logox30);
+            createToast(R.string.Lose, R.drawable.fail);
         }
     }
 

@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/distanciabotons"
-        android:drawableLeft="@drawable/connect4_logox30"
+        android:drawableLeft="@drawable/help"
+        android:drawablePadding="10dp"
         android:text="@string/btnHelp" />
 
     <Button
@@ -38,6 +39,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/distanciabotons"
         android:drawableLeft="@drawable/connect4_logox30"
+        android:drawablePadding="10dp"
         android:text="@string/btnInit" />
 
     <Button
@@ -46,7 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/botosortir"
-        android:drawableLeft="@drawable/connect4_logox30"
+        android:drawableLeft="@drawable/exit"
+        android:drawablePadding="10dp"
         android:text="@string/btnExit" />
 
 

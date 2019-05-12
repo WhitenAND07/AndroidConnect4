@@ -45,7 +45,8 @@
             android:id="@+id/OptionsImage1"
             android:layout_width="@dimen/midaimatgepetita"
             android:layout_height="@dimen/midaimatgepetita"
-            android:src="@drawable/connect4_logox30"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/user"
             android:paddingLeft="@dimen/espaiesquerra"/>
 
         <EditText
@@ -94,19 +95,22 @@
             android:id="@+id/radioButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/design_default_color_primary"
+            android:checked="true"
             android:text="@string/optionGrid1"/>
 
         <RadioButton
             android:id="@+id/radioButton6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/design_default_color_primary"
             android:text="@string/optionGrid2"/>
 
         <RadioButton
             android:id="@+id/radioButton8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
+            android:buttonTint="@color/design_default_color_primary"
             android:text="@string/optionGrid3"/>
 
     </RadioGroup>
@@ -125,7 +129,7 @@
         <ImageView
             android:layout_width="@dimen/midaimatgepetita"
             android:layout_height="@dimen/midaimatgepetita"
-            android:src="@drawable/connect4_logox30"
+            android:src="@drawable/clock"
             android:layout_marginTop="@dimen/espaitext"
             android:paddingLeft="@dimen/espaiesquerra"
             />
