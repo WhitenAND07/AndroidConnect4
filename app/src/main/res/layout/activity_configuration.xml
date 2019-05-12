@@ -145,7 +145,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/separacio"
         android:layout_gravity="center"
-        android:text="Començar !"
+        android:text="Començar ! (CPU)"
+        />
+
+    <Button
+        android:id="@+id/twoplayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/separacio"
+        android:layout_gravity="center"
+        android:text="2 jugadors"
         />
 
 </LinearLayout>

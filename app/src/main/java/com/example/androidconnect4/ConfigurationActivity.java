@@ -20,7 +20,9 @@ public class ConfigurationActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configuration);
         Button startBtn = (Button) findViewById(R.id.startBtn);
+        Button twoplayers = (Button) findViewById(R.id.twoplayers);
         startBtn.setOnClickListener(this);
+        twoplayers.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +40,20 @@ public class ConfigurationActivity extends AppCompatActivity implements View.OnC
                     intent.putExtra(Variables.SIZE, Integer.parseInt(sizeGrid.getText().toString()));
                     intent.putExtra(Variables.TIME, time.isChecked());
                     startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(this, R.string.toastMSG, Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+            case R.id.twoplayers:
+                if (!player.getText().toString().isEmpty()) {
+                    Intent i = new Intent(this, GameActivity.class);
+                    i.putExtra(Variables.USER, player.getText().toString());
+                    i.putExtra(Variables.SIZE, Integer.parseInt(sizeGrid.getText().toString()));
+                    i.putExtra(Variables.TIME, time.isChecked());
+                    i.putExtra("multiplayer", true);
+                    startActivity(i);
                     finish();
                 } else {
                     Toast.makeText(this, R.string.toastMSG, Toast.LENGTH_SHORT).show();

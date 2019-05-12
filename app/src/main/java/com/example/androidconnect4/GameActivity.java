@@ -15,11 +15,13 @@ public class GameActivity extends AppCompatActivity {
     private boolean time;
     private String player1;
     private int countDown = 40;
+    private static boolean mulitplayer;
 
     private TextView turn,timing;
 
     private ConnectBoard connectBoard;
     private GridView board;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,16 @@ public class GameActivity extends AppCompatActivity {
         time = getIntent().getBooleanExtra(Variables.TIME, false);
         turn = (TextView) findViewById(R.id.turn);
         timing = (TextView) findViewById(R.id.timing);
+        mulitplayer = (boolean) getIntent().getBooleanExtra("multiplayer", false);
     }
+
+    public static boolean isMulitplayer(){
+        boolean is = mulitplayer;
+        if(is){ return true; }
+        return false;
+
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

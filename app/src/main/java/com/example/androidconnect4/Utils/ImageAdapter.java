@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.androidconnect4.GameActivity;
 import com.example.androidconnect4.R;
 import com.example.androidconnect4.ResultActivity;
 
@@ -150,9 +151,11 @@ public class ImageAdapter extends BaseAdapter {
                 doTheMovement(position);
                 if (isFinal()){ createNewActivity();}
                 else {
-                    doTheMovement(randomCPU());
-                    if (isFinal()) {
-                        createNewActivity();
+                    if (!GameActivity.isMulitplayer()) {
+                        doTheMovement(randomCPU());
+                        if (isFinal()) {
+                            createNewActivity();
+                        }
                     }
                 }
             } else {
