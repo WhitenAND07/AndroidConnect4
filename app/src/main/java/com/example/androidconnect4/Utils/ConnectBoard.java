@@ -118,6 +118,7 @@ public class ConnectBoard implements Parcelable {
             return true;
         } else if (directionCol(position)){ return true;
         } else if (directionRow(position)){ return true;
+        } else if (directionMainDiagonal(position)){return true;
         }
 
         return false;
@@ -167,23 +168,37 @@ public class ConnectBoard implements Parcelable {
         return connected == 4;
     }
 
-    /*
-    public boolean directionDiagonal (int position){
+
+    public boolean directionMainDiagonal (int position){
         int connected = 1;
         int x = position/size;
         int y = position%size;
-        for (int i = 0; i<4; i++){
-            if ((x != size-1)){
-                if (connectBoard[x][y] == connectBoard[x+1][y]){
-                    connected ++;
-                    x++;
-                }
+        if((position - ((size+1)*y)<0)) {
+            position = position - ((size + 1) * x);
+            x = position / size;
+            y = position % size;
+        }else{
+            position = position - ((size + 1) * y);
+            x = position / size;
+            y = position % size;
+        }
+
+        for (int i=x, j=y; i<size-1 && j<size-1; i++, j++){
+            if (connectBoard[x][y] == connectBoard[x+1][y+1] && connectBoard[x+1][y+1] != 0) {
+                connected++;
+            }
+            else {
+                if(connected == 4){return true;}
+                connected = 1;
             }
         }
         return connected == 4;
     }
 
-    public boolean directionDiagonal2 (int position){
+
+    /*
+
+    public boolean directionContraDiagonal (int position){
         int connected = 1;
         int x = position/size;
         int y = position%size;
