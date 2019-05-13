@@ -138,12 +138,13 @@ public class ImageAdapter extends BaseAdapter {
 
     
     private class MyOnClickListener implements View.OnClickListener {
-        private final int position;
+        private int position;
         private Context context;
 
         MyOnClickListener(int position, Context context) {
             this.position = position;
             this.context = context;
+
         }
 
         public void onClick(View v) {
@@ -152,7 +153,8 @@ public class ImageAdapter extends BaseAdapter {
                 if (isFinal()){ createNewActivity();}
                 else {
                     if (!GameActivity.isMulitplayer()) {
-                        doTheMovement(randomCPU());
+                        position = randomCPU();
+                        doTheMovement(position);
                         if (isFinal()) {
                             createNewActivity();
                         }
