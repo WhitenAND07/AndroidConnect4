@@ -1,81 +1,44 @@
 package com.example.androidconnect4;
 
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.example.androidconnect4.Fragments.GameFragment;
+import com.example.androidconnect4.Fragments.GameLogsFragment;
 import com.example.androidconnect4.Utils.ConnectBoard;
 import com.example.androidconnect4.Utils.ImageAdapter;
+import com.example.androidconnect4.Utils.LogCreator;
 import com.example.androidconnect4.Utils.Variables;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends FragmentActivity implements GameFragment.GameListener {
 
-    private int SIZE;
-    private boolean time;
-    private String player1;
-    private int countDown = 40;
-    private static boolean mulitplayer;
-
-    private TextView turn,timing;
-
-    private ConnectBoard connectBoard;
-    private GridView board;
+    private LogCreator logCreator;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        getConfiguration();
-        if (savedInstanceState == null) initGame();
-        else getBackState(savedInstanceState);
-        initGridView();
+        GameFragment gameF = (GameFragment) getSupportFragmentManager().findFragmentById
+                (R.id.fragmentGame);
+
+        gameF.setGameListener(this);
+        logCreator = LogCreator.getINSTANCE(this);
     }
-
-    private void initGridView() {
-        ImageAdapter imageAdapter = new ImageAdapter(this, connectBoard, player1, SIZE, time,
-                turn, timing);
-        this.board = (GridView) findViewById(R.id.board);
-        this.board.setAdapter(imageAdapter);
-        this.board.setNumColumns(SIZE);
-    }
-
-    private void getBackState(Bundle savedInstanceState) {
-        connectBoard = savedInstanceState.getParcelable(Variables.ConnectBoard);
-        this.player1 = savedInstanceState.getString(Variables.USER);
-        this.SIZE = savedInstanceState.getInt(Variables.SIZE);
-        this.time = savedInstanceState.getBoolean(Variables.TIME);
-    }
-
-    private void initGame() {
-        connectBoard = new ConnectBoard(SIZE);
-        connectBoard.initConnectBoard(time, countDown);
-    }
-
-    private void getConfiguration() {
-        player1 = getIntent().getStringExtra(Variables.USER);
-        SIZE = getIntent().getIntExtra(Variables.SIZE, 7);
-        time = getIntent().getBooleanExtra(Variables.TIME, false);
-        turn = (TextView) findViewById(R.id.turn);
-        timing = (TextView) findViewById(R.id.timing);
-        mulitplayer = (boolean) getIntent().getBooleanExtra("multiplayer", false);
-    }
-
-    public static boolean isMulitplayer(){
-        boolean is = mulitplayer;
-        if(is){ return true; }
-        return false;
-
-    }
-
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(Variables.ConnectBoard, connectBoard);
-        outState.putString(Variables.USER, player1);
-        outState.putInt(Variables.SIZE, SIZE);
-        outState.putBoolean(Variables.TIME, time);
+    public void onGameItemSelected(Integer position, ConnectBoard connectBoard){
+        GameLogsFragment gameLogsFragment = (GameLogsFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.logFragment);
+
+        if(gameLogsFragment != null && gameLogsFragment.isInLayout()){
+            GameLogsFragment gameFragmentDetail = (GameLogsFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.logFragment);
+            gameFragmentDetail.mostrarLogs(logCreator.logValues(connectBoard, position));
+        }
+
     }
 }

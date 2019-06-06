@@ -1,11 +1,16 @@
 package com.example.androidconnect4;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,18 +18,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
+import com.example.androidconnect4.Fragments.GameFragment;
+import com.example.androidconnect4.Fragments.PreferencesFragment;
+import com.example.androidconnect4.Utils.SQLite;
 import com.example.androidconnect4.Utils.Variables;
 
 import java.util.Date;
 
 public class ResultActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Toolbar appbar;
     private int size;
     private boolean withTime;
     private int timeLeft;
-    private int score1;
-    private int score2;
     private String alias;
     private int turn;
     private int finalcells;
@@ -32,26 +40,41 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     private EditText date;
     private EditText resume;
     private EditText email;
+    private ContentValues registerLog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        appbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(appbar);
+
         date = (EditText) findViewById(R.id.date);
         resume = (EditText) findViewById(R.id.resume);
         email = (EditText) findViewById(R.id.email);
+
         Button exit = (Button) findViewById(R.id.ResultExitButton);
         exit.setOnClickListener(this);
+
         Button newGame = (Button) findViewById(R.id.ResultNewButton);
         newGame.setOnClickListener(this);
+
         Button send = (Button) findViewById(R.id.resultButton);
         send.setOnClickListener(this);
+
+        SQLite sqLite = SQLite.getInstance(getApplicationContext());
+
         if (savedInstanceState != null) {
             recuperateInstances(savedInstanceState);
         } else {
             Intent intent = getIntent();
+            registerLog = new ContentValues();
             getIntentValues(intent);
             setEditTexts();
+            if (sqLite.register(registerLog)!= -1){
+                createToast(R.string.save, R.drawable.ic_save);
+            }
         }
     }
     private void getIntentValues(Intent intent) {
@@ -61,6 +84,10 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         alias = intent.getStringExtra(Variables.USER);
         turn = intent.getIntExtra("turn",1);
         finalcells = intent.getIntExtra("full", -1);
+        registerLog.put(SQLite.GameTable.SIZE, size);
+        registerLog.put(SQLite.GameTable.TIME, withTime);
+        registerLog.put(SQLite.GameTable.FINAL_TIME, timeLeft);
+        registerLog.put(SQLite.GameTable.USER, alias);
     }
 
     private void recuperateInstances(Bundle savedInstanceState) {
@@ -74,15 +101,22 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void setEditTexts() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         Date actualDate = new Date();
         date.setText(actualDate.toString());
+        registerLog.put(SQLite.GameTable.DATE, actualDate.toString());
+        registerLog.put(SQLite.GameTable.PLAYERS, prefs.getString(getResources()
+                .getString(R.string.PLAYERS), "1"));
         createLog();
     }
 
     private void createLog() {
         String moreLog = "";
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int timetotal = Integer.valueOf(prefs.getString(getResources().
+                        getString(R.string.selectTime_key),"60"));
         if (withTime) {
-            int totaltime = 40 - timeLeft;
+            int totaltime = timetotal - timeLeft;
             moreLog += "\n" + Variables.TotalTime + totaltime + Variables.NANOSEGONS +".";
         }
         else {
@@ -93,6 +127,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog + "\n" +
                     getString(R.string.Time));
             createToast(R.string.Time, R.drawable.connect4_logox30);
+            registerLog.put(SQLite.GameTable.POSITION, R.string.Time);
         }
 
             else if (finalcells == 0) {
@@ -100,17 +135,20 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                         getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                         getString(R.string.Draw));
                 createToast(R.string.Draw, R.drawable.connect4_logox30);
+            registerLog.put(SQLite.GameTable.POSITION, R.string.Draw);
 
         } else if (turn == 2) {
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                     getString(R.string.Win));
             createToast(R.string.Win, R.drawable.win);
+            registerLog.put(SQLite.GameTable.POSITION, R.string.Win);
         } else if (turn == 1) {
             resume.setText(getString(R.string.Alias) + alias + ".\n " +
                     getString(R.string.SizeOfTheGrid) + String.valueOf(size) + "." + moreLog +"\n"+
                     getString(R.string.Lose));
             createToast(R.string.Lose, R.drawable.fail);
+            registerLog.put(SQLite.GameTable.POSITION, R.string.Lose);
         }
     }
 
@@ -138,7 +176,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.ResultNewButton:
-                Intent intent = new Intent(this, ConfigurationActivity.class);
+                Intent intent = new Intent(this, GameActivity.class);
                 finish();
                 startActivity(intent);
                 break;
@@ -155,6 +193,26 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
 
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.config_option:
+                Intent intent1 = new Intent(this, PreferencesFragment.class);
+                startActivity(intent1);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".GameActivity">
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,6 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
 
         <TextView
             android:id="@+id/t1"
@@ -26,12 +25,22 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <fragment
-        android:id="@+id/fragmentGame"
-        class="com.example.androidconnect4.Fragments.GameFragment"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/toolbar" />
-</RelativeLayout>
+        android:layout_height="match_parent">
+        <fragment
+            android:id="@+id/fragmentGame"
+            class="com.example.androidconnect4.Fragments.GameFragment"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="50" />
+
+        <fragment
+            android:id="@+id/logFragment"
+            class="com.example.androidconnect4.Fragments.GameLogsFragment"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="50" />
+    </LinearLayout>
+</LinearLayout>

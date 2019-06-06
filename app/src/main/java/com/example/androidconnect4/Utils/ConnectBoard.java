@@ -34,6 +34,8 @@ public class ConnectBoard implements Parcelable {
         return (int) clock.getTime();
     }
 
+    int getTurn(){ return turn;}
+
     public ConnectBoard(int size) {
         this.size = size;
         this.connectBoard = new int[size][size];

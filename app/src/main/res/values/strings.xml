@@ -53,4 +53,32 @@
     <string name="sendResults">Enviar e-mail</string>
     <string name="subject">Resultats de la partida - Connect 4 Game</string>
     <string name="GameRun"> Partida en curs!</string>
+    <string name="DatabaseLog">Database of Games</string>
+    <string name="PLAYERS">Jugadors</string>
+    <string name="save">Guardado</string>
+
+    <!--- Consult Games Activity -->
+    <string name="ConsultTitle">Acces Partides</string>
+
+    <!-- Strings for the preferences -->
+    <string name="userTitle">Nom d\'usuari</string>
+    <string name="userSummary">Nom de l\'usuari</string>
+    <string name="user_default">Usuari1</string>
+    <string name="boardTitle">Mida de la Graella</string>
+    <string name="boardSummary">Mida de la graella del joc</string>
+    <string name="timeTitle">Control de Temps</string>
+    <string name="timeSummary">Marcar per a limitar el temps de la partida</string>
+    <string name="selectTimeTitle">Temps de Joc</string>
+    <string name="selectTimeSummary">Marca el temps que vols com a limit</string>
+    <string name="multiplayerTitle">Multijugador</string>
+    <string name="multiplayerSummary">Marca si vols jugar en mode multijujador</string>
+    <string name="titleDialog">Introdueix valor</string>
+
+    <!--KEYS-->
+    <string name="user_key">user</string>
+    <string name="multiplayer_key">multiplayer</string>
+    <string name="board_key">board</string>
+    <string name="board_Default_key">7</string>
+    <string name="time_key">time</string>
+    <string name="selectTime_key">select_time</string>
 </resources>
