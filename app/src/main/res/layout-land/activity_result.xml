@@ -47,7 +47,7 @@
 
                 <EditText
                     android:id="@+id/date"
-                    android:ems="9"
+                    android:ems="20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -64,7 +64,7 @@
 
                 <EditText
                     android:id="@+id/resume"
-                    android:ems="9"
+                    android:ems="20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -81,7 +81,7 @@
 
                 <EditText
                     android:id="@+id/email"
-                    android:ems="9"
+                    android:ems="20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -106,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_start_game"
-                    android:text="@string/btnInit"/>
+                    android:text="@string/btnInit" />
 
                 <Button
                     android:id="@+id/ResultExitButton"

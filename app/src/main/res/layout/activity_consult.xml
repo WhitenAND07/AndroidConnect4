@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/title_db_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/DatabaseLog" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <fragment
+        android:id="@+id/ListFrag"
+        class="com.example.androidconnect4.Fragments.ListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="100" />
+
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_arrow_right"
+        android:onClick="onClick"
+        android:text="@string/backBtn" />
+</LinearLayout>

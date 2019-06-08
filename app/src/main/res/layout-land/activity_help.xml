@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" >
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
         <TextView
             android:id="@+id/t1"
@@ -22,7 +22,7 @@
             android:layout_alignParentTop="true"
             android:text="@string/HelpTitle"
             android:paddingLeft="@dimen/espaiesquerra"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_arrow_right"
+                android:drawableLeft="@drawable/ic_arrow_right"
                 android:text="@string/backBtn" />
         </LinearLayout>
     </ScrollView>
