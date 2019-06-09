@@ -33,11 +33,9 @@ public class DetailFragment extends Fragment {
                 SQLite.GameTable.SIZE + ": " + cursor.getString(3) + "\n" +
                 SQLite.GameTable.TIME + ": " + cursor.getString(4) + "\n" +
                 SQLite.GameTable.PLAYERS + ": " + cursor.getString(5) + "\n" +
-                SQLite.GameTable.PLAYER1 + ": " + cursor.getString(6) + "\n" +
-                SQLite.GameTable.PLAYER2 + ": " + cursor.getString(7) + "\n" +
-                SQLite.GameTable.FINAL_TIME + ": " + cursor.getString(8) + "\n" +
+                SQLite.GameTable.FINAL_TIME + ": " + cursor.getString(6) + "\n" +
                 SQLite.GameTable.POSITION + ": " +
-                getResources().getString(Integer.valueOf(cursor.getString(9))) + "\n";
+                getResources().getString(Integer.valueOf(cursor.getString(7))) + "\n";
         return textGame;
     }
 

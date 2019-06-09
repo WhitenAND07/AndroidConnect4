@@ -81,7 +81,7 @@ public class ListFragment extends Fragment {
             lblTime.setText(cursor.getString(2));
 
             TextView lblPosition = (TextView) item.findViewById(R.id.DBPosition);
-            lblPosition.setText(getString(Integer.valueOf(cursor.getString(9))));
+            lblPosition.setText(getString(Integer.valueOf(cursor.getString(7))));
 
             return (item);
         }

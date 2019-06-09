@@ -13,8 +13,7 @@ public class SQLite extends SQLiteOpenHelper {
     private final static String sql = GameTable.CREATE + GameTable.NAME + GameTable.HEADER +
             GameTable.USER + GameTable.TEXT_TYPE + GameTable.DATE + GameTable.TEXT_TYPE +
             GameTable.SIZE + GameTable.INT_TYPE + GameTable.TIME + GameTable.BOOL_TYPE +
-            GameTable.PLAYERS + GameTable.TEXT_TYPE + GameTable.PLAYER1 + GameTable.INT_TYPE +
-            GameTable.PLAYER2 + GameTable.INT_TYPE + GameTable.FINAL_TIME +
+            GameTable.PLAYERS + GameTable.TEXT_TYPE + GameTable.FINAL_TIME +
             GameTable.TEXT_TYPE + GameTable.POSITION + " TEXT)";
     private static SQLite sqLiteInstance;
 
@@ -59,7 +58,7 @@ public class SQLite extends SQLiteOpenHelper {
         public static final String PLAYER1 = "player1";
         public static final String PLAYER2 = "player2";
         public static final String FINAL_TIME = "final_time";
-        public static final String POSITION = "position";
+        public static final String POSITION = "Resultat";
         private static final String NAME = "GameHistorial";
         private static final String HEADER = "(_id INTEGER PRIMARY KEY AUTOINCREMENT, ";
         private static final String TEXT_TYPE = " TEXT, ";

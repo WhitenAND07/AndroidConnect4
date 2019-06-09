@@ -21,11 +21,10 @@
             android:layout_marginLeft="@dimen/margeditext"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"/>
-        <TextView
+        <ImageView
             android:id="@+id/turn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorGreen"/>
+            android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_width="wrap_content"

@@ -57,11 +57,6 @@ public class LogCreator implements Serializable {
         log += "Position selected: " + String.valueOf(position / Integer.valueOf(size)) + "," +
                 String.valueOf(position % Integer.valueOf(size)) + "\n";
 
-        log += "Remaining positions: " + String.valueOf(Integer.valueOf(size)* Integer.valueOf(size) -
-                connectBoard.getPositionsComputer().size() - connectBoard.getPositionsUser().size())
-                + "\n";
-
-
         log += "Time start: " + this.time + "seconds;  Time finish: " + new SimpleDateFormat("hh:mm:ss").format(new Date()) + "\n";;
 
         if (timeActive) {

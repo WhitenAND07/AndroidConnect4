@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.androidconnect4.R;
@@ -26,8 +27,8 @@ public class GameFragment extends Fragment {
     private String player1;
     private int countDown = 40;
     private static boolean mulitplayer;
-
-    private TextView turn, timing;
+    private ImageView turn;
+    private TextView timing;
     private ConnectBoard connectBoard;
 
     @Override
@@ -65,7 +66,7 @@ public class GameFragment extends Fragment {
         SIZE = Integer.valueOf(prefs.getString(getResources().getString(R.string.board_key),
                 getResources().getString(R.string.board_Default_key)));
         timing = (TextView) getView().findViewById(R.id.timing);
-        turn = (TextView) getView().findViewById(R.id.turn);
+        turn = (ImageView) getView().findViewById(R.id.turn);
     }
 
     public void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -110,9 +111,12 @@ public class GameFragment extends Fragment {
             throw new ClassCastException(c.toString() + "No listener");
         }
     }
-    public static boolean isMulitplayer(){
+
+    public static boolean isMulitplayer() {
         boolean is = mulitplayer;
-        if(is){ return true; }
+        if (is) {
+            return true;
+        }
         return false;
     }
 }

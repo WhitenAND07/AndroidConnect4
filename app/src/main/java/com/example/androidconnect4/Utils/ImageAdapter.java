@@ -3,11 +3,13 @@ package com.example.androidconnect4.Utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,13 +22,14 @@ public class ImageAdapter extends BaseAdapter {
     private Activity mContext;
     private ConnectBoard connectBoard;
     private boolean timeNotNull;
-    private TextView turn, time;
+    private TextView time;
+    private ImageView turn;
     private int SIZE;
     private String alias;
     private GameFragment.GameListener listener;
 
     public ImageAdapter(Activity c, ConnectBoard connectBoard, String alias, int size,
-                        boolean timeNotNull, TextView turn, TextView time,
+                        boolean timeNotNull, ImageView turn, TextView time,
                         GameFragment.GameListener listener){
 
         this.listener = listener;
@@ -95,7 +98,12 @@ public class ImageAdapter extends BaseAdapter {
 
 
     private void updateTextViews() {
-        this.turn.setText(String.valueOf(connectBoard.turn));
+        if (connectBoard.turn == 1){
+            this.turn.setImageResource(R.drawable.celausuari);
+        }
+        else {
+            this.turn.setImageResource(R.drawable.celaoponent);
+        }
     }
     private void createNewActivity() {
         int timeLeft;
