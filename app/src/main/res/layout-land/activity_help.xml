@@ -22,7 +22,7 @@
             android:layout_alignParentTop="true"
             android:text="@string/HelpTitle"
             android:paddingLeft="@dimen/espaiesquerra"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     </android.support.v7.widget.Toolbar>
 

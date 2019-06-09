@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
 
         <TextView
             android:id="@+id/t1"
@@ -17,25 +18,23 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="@string/DatabaseLog"
+            android:text="@string/GameTitle"
             android:paddingLeft="@dimen/espaiesquerra"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     </android.support.v7.widget.Toolbar>
 
     <fragment
-        android:id="@+id/ListFrag"
-        class="com.example.androidconnect4.Fragments.ListFragment"
+        android:id="@+id/fragmentGame"
+        class="com.example.androidconnect4.Fragments.GameFragment"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="100" />
+        android:layout_weight="50" />
 
-
-    <Button
-        android:id="@+id/back"
+    <fragment
+        android:id="@+id/logFragment"
+        class="com.example.androidconnect4.Fragments.GameLogsFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_arrow_right"
-        android:onClick="onClick"
-        android:text="@string/backBtn" />
+        android:layout_height="0px"
+        android:layout_weight="50" />
 </LinearLayout>

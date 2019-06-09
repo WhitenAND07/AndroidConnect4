@@ -1,4 +1,4 @@
-package com.example.androidconnect4.Fragments;
+package com.example.androidconnect4;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -8,7 +8,7 @@ import android.preference.PreferenceManager;
 import com.example.androidconnect4.R;
 
 
-public class PreferencesFragment extends PreferenceActivity {
+public class PreferencesActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

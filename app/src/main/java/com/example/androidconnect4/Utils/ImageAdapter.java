@@ -68,15 +68,15 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null){
             btn = new Button(mContext);
             if(getCount() == 25 ){
-                btn.setLayoutParams(new GridView.LayoutParams(200, 200));
+                btn.setLayoutParams(new GridView.LayoutParams(150, 150));
                 btn.setPadding(5, 5, 5, 5);
             }
             else if(getCount() == 36 ){
-                btn.setLayoutParams(new GridView.LayoutParams(170, 170));
+                btn.setLayoutParams(new GridView.LayoutParams(130, 130));
                 btn.setPadding(5, 5, 5, 5);
             }
             else {
-                btn.setLayoutParams(new GridView.LayoutParams(150, 150));
+                btn.setLayoutParams(new GridView.LayoutParams(100, 100));
                 btn.setPadding(5, 5, 5, 5);
             }
         }

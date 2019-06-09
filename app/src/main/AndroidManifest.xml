@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".ResultActivity"/>
         <activity android:name=".GameActivity" />
         <activity android:name=".ConfigurationActivity" />
         <activity android:name=".HelpActivity" />
@@ -20,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fragments.PreferencesFragment"/>
+        <activity android:name=".PreferencesActivity"/>
+        <activity android:name=".ConsultActivity"/>
+        <activity android:name=".DetailActivity"/>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.androidconnect4.Fragments;
+package com.example.androidconnect4;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,10 +6,12 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.example.androidconnect4.DetailActivity;
+import com.example.androidconnect4.Fragments.DetailFragment;
+import com.example.androidconnect4.Fragments.ListFragment;
 import com.example.androidconnect4.MainActivity;
 import com.example.androidconnect4.R;
 
-public class ConsultFragment extends FragmentActivity implements ListFragment.GameListener {
+public class ConsultActivity extends FragmentActivity implements ListFragment.GameListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

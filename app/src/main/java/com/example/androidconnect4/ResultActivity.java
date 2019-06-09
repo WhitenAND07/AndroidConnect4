@@ -20,8 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
-import com.example.androidconnect4.Fragments.GameFragment;
-import com.example.androidconnect4.Fragments.PreferencesFragment;
 import com.example.androidconnect4.Utils.SQLite;
 import com.example.androidconnect4.Utils.Variables;
 
@@ -204,7 +202,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.config_option:
-                Intent intent1 = new Intent(this, PreferencesFragment.class);
+                Intent intent1 = new Intent(this, PreferencesActivity.class);
                 startActivity(intent1);
                 return true;
             default:

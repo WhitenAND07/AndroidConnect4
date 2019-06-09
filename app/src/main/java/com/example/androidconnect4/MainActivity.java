@@ -10,8 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.example.androidconnect4.Fragments.PreferencesFragment;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar appbar;
@@ -26,9 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button btnHelp = (Button) findViewById(R.id.btnHelp);
         Button btnInit = (Button) findViewById(R.id.btnInit);
+        Button btnConsult = (Button) findViewById(R.id.btnConsult);
         Button btnExit = (Button) findViewById(R.id.btnExit);
         btnHelp.setOnClickListener(this);
         btnInit.setOnClickListener(this);
+        btnConsult.setOnClickListener(this);
         btnExit.setOnClickListener(this);
 
     }
@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
                 finish();
                 break;
+            case R.id.btnConsult:
+                Intent intent2 = new Intent(this, ConsultActivity.class);
+                startActivity(intent2);
+                finish();
+                break;
             case R.id.btnExit:
                 finish();
                 break;
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.config_option:
-                Intent intent1 = new Intent(this, PreferencesFragment.class);
+                Intent intent1 = new Intent(this, PreferencesActivity.class);
                 startActivity(intent1);
                 return true;
             default:

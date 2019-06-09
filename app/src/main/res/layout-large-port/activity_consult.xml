@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,6 +22,7 @@
             android:paddingLeft="@dimen/espaiesquerra"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
+
     </android.support.v7.widget.Toolbar>
 
     <fragment
@@ -30,9 +32,15 @@
         android:layout_height="0px"
         android:layout_weight="100" />
 
+    <fragment
+        android:id="@+id/FrgDetalle"
+        class="com.example.androidconnect4.Fragments.DetailFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="100" />
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/btnExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_arrow_right"

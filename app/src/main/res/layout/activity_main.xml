@@ -41,6 +41,15 @@
         android:drawableLeft="@drawable/connect4_logox30"
         android:drawablePadding="10dp"
         android:text="@string/btnInit" />
+    <Button
+        android:id="@+id/btnConsult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/distanciabotons"
+        android:drawablePadding="10dp"
+        android:text="@string/ConsultTitle"
+        android:drawableLeft="@drawable/icon_results"/>
 
     <Button
         android:id="@+id/btnExit"
