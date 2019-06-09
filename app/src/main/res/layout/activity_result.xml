@@ -27,7 +27,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -40,16 +40,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/date" />
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp">
 
-                <EditText
-                    android:id="@+id/date"
-                    android:ems="9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/date"/>
+                </android.support.design.widget.TextInputLayout>
+
 
             </LinearLayout>
 
@@ -57,33 +60,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/resume" />
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp">
 
-                <EditText
-                    android:id="@+id/resume"
-                    android:ems="9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
+                    <EditText
+                        android:id="@+id/resume"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/resume"/>
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/email" />
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp">
 
-                <EditText
-                    android:id="@+id/email"
-                    android:ems="9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    <EditText
+                        android:id="@+id/input_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress" />
+                </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
 
@@ -106,7 +113,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/ic_start_game"
-                    android:text="@string/btnInit"/>
+                    android:text="@string/btnInit" />
 
                 <Button
                     android:id="@+id/ResultExitButton"
