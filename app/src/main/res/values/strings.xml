@@ -5,6 +5,7 @@
     <string name="btnHelp">Ajuda</string>
     <string name="btnInit">Comença la Partida</string>
     <string name="btnExit">Sortir</string>
+    <string name="btnConsult">Consultar Partides</string>
 
     <!--- Help Activity -->
     <string name="HelpTitle">Ajuda</string>

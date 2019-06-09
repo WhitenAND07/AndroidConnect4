@@ -68,20 +68,8 @@ public class ImageAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Button btn;
-        if (convertView == null){
+        if (convertView == null) {
             btn = new Button(mContext);
-            if(getCount() == 25 ){
-                btn.setLayoutParams(new GridView.LayoutParams(150, 150));
-                btn.setPadding(5, 5, 5, 5);
-            }
-            else if(getCount() == 36 ){
-                btn.setLayoutParams(new GridView.LayoutParams(120, 120));
-                btn.setPadding(5, 5, 5, 5);
-            }
-            else {
-                btn.setLayoutParams(new GridView.LayoutParams(100, 100));
-                btn.setPadding(5, 5, 5, 5);
-            }
         }
         else {
             btn = (Button) convertView;

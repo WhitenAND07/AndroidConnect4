@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnInit.setOnClickListener(this);
         btnConsult.setOnClickListener(this);
         btnExit.setOnClickListener(this);
+        btnConsult.setOnClickListener(this);
 
     }
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnExit:
                 finish();
                 break;
+
         }
     }
     @Override
