@@ -1,17 +1,12 @@
 package com.example.androidconnect4;
 
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.GridView;
-import android.widget.TextView;
 
 import com.example.androidconnect4.Fragments.GameFragment;
 import com.example.androidconnect4.Fragments.GameLogsFragment;
 import com.example.androidconnect4.Utils.ConnectBoard;
-import com.example.androidconnect4.Utils.ImageAdapter;
 import com.example.androidconnect4.Utils.LogCreator;
-import com.example.androidconnect4.Utils.Variables;
 
 public class GameActivity extends FragmentActivity implements GameFragment.GameListener {
 

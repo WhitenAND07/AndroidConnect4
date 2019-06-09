@@ -65,6 +65,7 @@ public class GameFragment extends Fragment {
         SIZE = Integer.valueOf(prefs.getString(getResources().getString(R.string.board_key),
                 getResources().getString(R.string.board_Default_key)));
         timing = (TextView) getView().findViewById(R.id.timing);
+        turn = (TextView) getView().findViewById(R.id.turn);
     }
 
     public void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -87,7 +88,7 @@ public class GameFragment extends Fragment {
 
     private void startGridView() {
         ImageAdapter imageAdapter = new ImageAdapter(getActivity(), connectBoard, player1, SIZE, time,
-                turn, timing);
+                turn, timing, listener);
         GridView board = (GridView) getView().findViewById(R.id.board);
         board.setAdapter(imageAdapter);
         board.setNumColumns(SIZE);

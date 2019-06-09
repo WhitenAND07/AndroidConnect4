@@ -19,14 +19,17 @@ public class ImageAdapter extends BaseAdapter {
 
     private Activity mContext;
     private ConnectBoard connectBoard;
-    private TextView time;
     private boolean timeNotNull;
-    private TextView turn;
+    private TextView turn, time;
     private int SIZE;
     private String alias;
+    private GameFragment.GameListener listener;
 
     public ImageAdapter(Activity c, ConnectBoard connectBoard, String alias, int size,
-                        boolean timeNotNull, TextView turn, TextView time){
+                        boolean timeNotNull, TextView turn, TextView time,
+                        GameFragment.GameListener listener){
+
+        this.listener = listener;
         mContext = c;
         this.connectBoard = connectBoard;
         this.SIZE = size;
@@ -72,7 +75,7 @@ public class ImageAdapter extends BaseAdapter {
                 btn.setPadding(5, 5, 5, 5);
             }
             else if(getCount() == 36 ){
-                btn.setLayoutParams(new GridView.LayoutParams(130, 130));
+                btn.setLayoutParams(new GridView.LayoutParams(120, 120));
                 btn.setPadding(5, 5, 5, 5);
             }
             else {
@@ -126,6 +129,7 @@ public class ImageAdapter extends BaseAdapter {
         intent.putExtra("full", connectBoard.finalcells);
         mContext.startActivity(intent);
         mContext.finish();
+        LogCreator.deleteLog();
     }
 
     private int randomCPU() {
@@ -169,6 +173,7 @@ public class ImageAdapter extends BaseAdapter {
             connectBoard.changeTurn();
             connectBoard.getPositionsPossible();
             update();
+            listener.onGameItemSelected(position, connectBoard);
         }
         private void update() {
             updateTextViews();
